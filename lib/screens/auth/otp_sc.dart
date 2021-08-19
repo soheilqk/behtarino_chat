@@ -2,6 +2,7 @@ import 'package:behtarino_chat/screens/auth/auth_vm.dart';
 import 'package:behtarino_chat/widgets/back.dart';
 import 'package:behtarino_chat/widgets/backgroud.dart';
 import 'package:behtarino_chat/widgets/error_text.dart';
+import 'package:behtarino_chat/widgets/header.dart';
 import 'package:behtarino_chat/widgets/otp_pin.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -71,12 +72,7 @@ class _OtpScreenState extends State<OtpScreen> {
             EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Back(),
-              ],
-            ),
+            Header(right: Back()),
             SizedBox(height: 40),
             Text(
               'هپی چت',
@@ -116,7 +112,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         style: TextStyle(
                             color: Colors.black,
                             decoration: TextDecoration.underline),
-                      )),
+                      ),),
             ],
             Spacer(),
           ],

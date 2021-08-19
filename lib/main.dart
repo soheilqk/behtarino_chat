@@ -2,6 +2,8 @@ import 'package:behtarino_chat/constants/prefs.dart';
 import 'package:behtarino_chat/screens/auth/auth_vm.dart';
 import 'package:behtarino_chat/screens/auth/enter_phone_sc.dart';
 import 'package:behtarino_chat/screens/auth/otp_sc.dart';
+import 'package:behtarino_chat/screens/chat/chat_screen.dart';
+import 'package:behtarino_chat/screens/chat/chat_vm.dart';
 import 'package:behtarino_chat/screens/chat/contacts_sc.dart';
 import 'package:behtarino_chat/utils/shared_prefs_utils.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +15,8 @@ Future<void> main() async {
   var loggedIn = await SharedPrefsUtils.getString(Prefs.token);
   runApp(MultiProvider(
     providers: [
-      ListenableProvider(
-        create: (context) => AuthViewModel(),
-      ),
+      ListenableProvider(create: (context) => AuthViewModel()),
+      ListenableProvider(create: (context) => ChatViewModel()),
     ],
     child: MaterialApp(
       title: 'Happy Chat',
@@ -29,11 +30,13 @@ Future<void> main() async {
         EnterPhoneScreen.routeName: (_) => EnterPhoneScreen(),
         OtpScreen.routeName: (_) => OtpScreen(),
         Contacts.routeName: (_) => Contacts(),
+        ChatScreen.routeName: (_) => ChatScreen(),
       },
     ),
   ));
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.white,
-      statusBarBrightness: Brightness.dark,
-      statusBarIconBrightness: Brightness.dark));
+    statusBarColor: Colors.white,
+    statusBarBrightness: Brightness.dark,
+    statusBarIconBrightness: Brightness.dark,
+  ));
 }

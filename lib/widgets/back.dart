@@ -2,16 +2,21 @@ import 'package:behtarino_chat/constants/images.dart';
 import 'package:flutter/material.dart';
 
 class Back extends StatelessWidget {
-  const Back({Key? key}) : super(key: key);
+  final Function? onPress;
+  Back({this.onPress});
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Text('بازگشت',style: TextStyle(fontWeight: FontWeight.bold),),
         SizedBox(width: 4),
         InkWell(
-          onTap: () => Navigator.of(context).pop(),
+          onTap: () {
+            Navigator.of(context).pop();
+            if(onPress != null) onPress!();
+          },
           child: Container(
             height: 30,
             width: 30,

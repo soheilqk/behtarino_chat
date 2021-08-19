@@ -1,3 +1,5 @@
+import 'package:behtarino_chat/constants/prefs.dart';
+import 'package:behtarino_chat/utils/shared_prefs_utils.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -43,6 +45,15 @@ class HttpClient {
         } else {
           return handler.next(error);
         }
+      },
+      onRequest: (request, handler) async {
+        String? token = await SharedPrefsUtils.getString(Prefs.token);
+        if (token != null)
+          request.headers.putIfAbsent(
+            'Authorization',
+                () => 'Token $token',
+          );
+        return handler.next(request);
       },
     ));
   }

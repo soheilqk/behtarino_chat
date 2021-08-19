@@ -12,7 +12,7 @@ class AuthRepository {
   }
 
 
-  Future<PhonePR> phoneVerification(BuildContext context, {PhonePD? pd}) async {
+  Future<PhonePR> phoneVerification({PhonePD? pd}) async {
     try {
       Response response = await hc.post(Urls.phoneVerification,data: pd?.toMap());
       return PhonePR.fromMap(response.data);
@@ -21,7 +21,7 @@ class AuthRepository {
     }
   }
 
-  Future<PhonePR> tokenSign(BuildContext context, {PhonePD? pd}) async {
+  Future<PhonePR> tokenSign({PhonePD? pd}) async {
     try {
       Response response = await hc.post(Urls.tokenSign,data: pd?.toMap());
       return PhonePR.fromMap(response.data);

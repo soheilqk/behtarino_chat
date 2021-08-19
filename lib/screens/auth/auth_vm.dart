@@ -92,7 +92,6 @@ class AuthViewModel with ChangeNotifier {
     try {
       signInLoading = true;
       final res = await AuthRepository(context).phoneVerification(
-        context,
         pd: PhonePD(phone: phone),
       );
       if (res.meta?.statusCode == 200) {
@@ -113,7 +112,6 @@ class AuthViewModel with ChangeNotifier {
       otpLoading = true;
       otpErrMsg = null;
       final res = await AuthRepository(context).phoneVerification(
-        context,
         pd: PhonePD(phone: phone),
       );
       if (res.meta?.statusCode == 200) {
@@ -128,7 +126,6 @@ class AuthViewModel with ChangeNotifier {
     try {
       otpLoading = true;
       final res = await AuthRepository(context).tokenSign(
-        context,
         pd: PhonePD(username: phone, password: otp),
       );
       if (res.meta?.statusCode == 200) {
