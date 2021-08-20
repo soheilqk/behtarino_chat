@@ -3,6 +3,7 @@ class Images {
   static const backArrow = 'assets/images/back_arrow.png';
   static const search = 'assets/images/search.png';
   static const send = 'assets/images/send.png';
+  static const portal = 'assets/images/portal.png';
 
   static const profile1 = 'assets/images/profile1.png';
   static const profile2 = 'assets/images/profile2.png';

@@ -8,7 +8,7 @@ class ChatRepository{
   late HttpClient hc;
 
   ChatRepository(BuildContext context){
-    hc = HttpClient(context,logger: true);
+    hc = HttpClient(context);
   }
 
   Future<ContactListGR> getContactsList() async {
